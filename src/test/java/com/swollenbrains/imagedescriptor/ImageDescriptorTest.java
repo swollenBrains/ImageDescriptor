@@ -2,8 +2,11 @@ package com.swollenbrains.imagedescriptor;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 import org.junit.Test;
+
+import com.drew.imaging.ImageProcessingException;
 
 import junit.framework.Assert;
 
@@ -23,8 +26,8 @@ public class ImageDescriptorTest {
 	}
 	
 	@Test
-	public void testReadMetadata() throws IOException {
-		File sampleImage = new File("sampleImage.jpg");
+	public void testReadMetadata() throws IOException, ImageProcessingException {
+		InputStream sampleImage = this.getClass().getResourceAsStream("sampleImage.jpg");
 		imageDescriptor.readMetadata(sampleImage);
 	}
 
